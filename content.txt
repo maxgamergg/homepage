@@ -1,1 +1,9 @@
 Hallo!
+Die Seite ist noch in der Entwicklung!!
+Ich habe noch einige schwierigkeiten mit CSS und JS, die sind noch etwas zu kompliziert.
+
+Was auch immer, ich wünsche dir einen sicheren aufentlat im netz und lad nichts unbekanntes aus den internet!
+Versuch nicht dein Antivirus zu verbessern indem du ihn mit leichten viren ansteckst ne ;D
+
+kleiner Tipp für die sicherheit im Netz:
+Nutze den Brave Browser oder Firefox mit der erweiterung UBlock Origin (https://ublockorigin.com/de) und ggf Malwarebytes oder ähnliches!
