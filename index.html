@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Webseite</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <button id="mainPageBtn">Home</button>
+        <button id="socialsBtn">Socials</button>
+    </div>
+
+    <div id="mainPage" class="tab-content">
+        <h1>Willkommen auf meiner Webseite!</h1>
+        <div id="content">
+            <p>Dies ist der Hauptinhalt der Seite.</p>
+        </div>
+        <div id="loginSection">
+            <button id="loginBtn">Einloggen</button>
+            <div id="loginForm" style="display:none;">
+                <input type="password" id="passwordInput" placeholder="Passwort">
+                <button id="submitPassword">Einreichen</button>
+            </div>
+        </div>
+        <div id="editor" style="display:none;">
+            <textarea id="newContent" placeholder="Neuen Inhalt hier schreiben..."></textarea>
+            <button id="saveContent">Inhalt speichern</button>
+        </div>
+    </div>
+
+    <div id="socialsPage" class="tab-content" style="display:none;">
+        <h1>Meine Socials</h1>
+        <ul>
+            <li><a href="https://twitter.com/deinusername" target="_blank">Twitter</a></li>
+            <li><a href="https://instagram.com/deinusername" target="_blank">Instagram</a></li>
+            <!-- Füge hier weitere Social Links hinzu -->
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<h1 style="color: #1e90ff;">Willkommen auf meiner Webseite!</h1>
