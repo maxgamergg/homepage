@@ -1,10 +1,9 @@
-Hallo!
-Die Seite ist noch in der Entwicklung!!
-Ich habe noch einige schwierigkeiten mit CSS und JS, die sind noch etwas zu kompliziert.
+Willkommen bei Astra Studio
+Hallo! Die Seite ist noch in der Entwicklung und ich habe noch einige Herausforderungen mit CSS und JavaScript – das ist alles noch ein bisschen kompliziert.
 
-Was auch immer, ich wünsche dir einen sicheren aufentlat im netz und lad nichts unbekanntes aus den internet!
-Versuch nicht dein Antivirus zu verbessern indem du ihn mit leichten Viren ansteckst ne ;D
+Aber egal, ich wünsche dir einen sicheren Aufenthalt im Netz! Achte darauf, nichts Unbekanntes aus dem Internet herunterzuladen. Und denk nicht daran, dein Antivirus-Programm zu "verbessern", indem du es mit leichten Viren infizierst! 😉
 
-kleiner Tipp für die sicherheit im Netz:
-Nutze den Brave Browser oder Firefox mit der erweiterung UBlock Origin (https://ublockorigin.com/de) und ggf Malwarebytes oder ähnliches!
+Ein kleiner Tipp für mehr Sicherheit im Netz: Nutze den Brave Browser oder Firefox mit der Erweiterung uBlock Origin und eventuell Malwarebytes oder eine ähnliche Software. Und bitte, eine große Bitte:
+
+Benutzt nicht überall dasselbe Passwort! Wenn möglich, verwendet einen sicheren Passwortmanager wie den Google Passwortmanager oder auch einfach Blatt und Stift. Vergebt für jeden Account ein EIGENES Passwort und sichert eure Accounts so gut es geht mit 2FA-Apps, Telefonnummern usw.
 
