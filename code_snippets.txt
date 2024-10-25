@@ -1,0 +1,63 @@
+## Python: Age Calculator
+
+
+from datetime import datetime, date
+
+# Define color codes for aesthetic purposes (using ANSI codes for terminal | may not work in all terminal versions idk why but if so just set all 4 variables to empty strings)
+red = '\033[91m'
+yellow = '\033[93m'
+cyan = '\033[96m'
+reset = '\033[0m'
+
+# error/exit function
+def exit_program(message):
+    print()
+    print(f'{red}{message}{reset}')
+    print()
+    input(f'{yellow}*** Press any key to exit the program. ***{reset}')
+    exit(0)
+
+# user input for birthdate
+birthdate_str = input(
+    f"{cyan}Please enter your birthdate for age calculation ({yellow}DD.MM.YYYY{cyan}): {reset}"
+)
+print()
+
+# format birthdate to date object
+try:
+    birthdate = datetime.strptime(birthdate_str, "%d.%m.%Y").date()
+except ValueError:
+    exit_program("Error: Invalid date format.")
+
+# calculate age
+today = date.today()
+age = today - birthdate
+
+# functions to display age in days or weeks
+def age_in_days():
+    print(f"{cyan}You are {red}{age.days}{cyan} days old.{reset}")
+
+def age_in_weeks():
+    weeks = age.days // 7
+    print(f"{cyan}You are approximately {red}{weeks}{cyan} weeks old.{reset}")
+
+# ask the user for preferred format (days or weeks)
+age_days_weeks = input(f"{cyan}Do you want to know your age in days or weeks? ({yellow}Days/Weeks{cyan}): {reset}")
+
+if "d" in age_days_weeks.lower():
+    age_in_days()
+    exit_program("You got your answer!")
+elif "w" in age_days_weeks.lower():
+    age_in_weeks()
+    exit_program("You got your answer!")
+else:
+    print(f"{red}Invalid choice!{reset}")
+    exit_program("Program ended.")
+
+## Python: List Comprehension 
+
+
+numbers = [1, 2, 3, 4, 5]
+squares = [x**2 for x in numbers]
+print(squares)  # Output: [1, 4, 9, 16, 25]
+#
