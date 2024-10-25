@@ -44,12 +44,12 @@
 ## [0.7.0] - 2024-09-19
 
 ### Changed
-- Implemented home content directly in the HTML file instead of loading it externally.
+-  Implemented home content directly in the HTML file instead of loading it externally.
 
 ## [0.6.0] - 2024-09-13
 
 ### Changed
--Improved dynamic content loading using JavaScript.
+- Improved dynamic content loading using JavaScript.
 
 ## [0.5.0] - 2024-09-09
 
