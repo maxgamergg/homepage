@@ -36,15 +36,20 @@
 - Added code snippets section.
 - Integrated `https://cdn.jsdelivr.net/npm/marked/marked.min.js` for future use.
 
-## [0.7.0 - 0.8.0] - 2024-09-19
+## [0.8.0] - 2024-10-13
+
+### Added
+- Linked with Uptime Robot ([Status Page](https://stats.uptimerobot.com/1bM6OM4pTN)).
+
+## [0.7.0] - 2024-09-19
 
 ### Changed
 - Implemented home content directly in the HTML file instead of loading it externally.
 
 ## [0.6.0] - 2024-09-13
 
-### Added
-- Linked with Uptime Robot ([Status Page](https://stats.uptimerobot.com/1bM6OM4pTN)).
+### Changed
+-Improved dynamic content loading using JavaScript.
 
 ## [0.5.0] - 2024-09-09
 
