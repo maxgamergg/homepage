@@ -26,7 +26,7 @@
 ## [1.0.0] - 2024-10-23
 
 ### Added
-- Redesigned the page on 2024-10-23.
+- Redesigned the page.
 - Added changelog section.
 - Integrated HTML, CSS, and JavaScript files into a single file.
 
