@@ -3,146 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astra Studio | Maxgamer</title>
+    <title>Meteroite™️ | Maxgamer</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #121212;
-            color: #e0e0e0;
-            display: flex; /* Flexbox aktivieren */
-            flex-direction: column; /* Elemente in einer Spalte anordnen */
-            min-height: 100vh; /* Mindesthöhe auf 100% des Viewports setzen */
-        }
+        
+        
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('/homepagev2/icons/pycharm64.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Das Bild bleibt beim Scrollen fixiert */
+    background-repeat: no-repeat;
+}
 
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-            flex: 1; /* Container nimmt den verfügbaren Platz ein */
-        }
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+    flex: 1;
+}
 
-        header {
-            background: #1e1e1e;
-            color: #e0e0e0;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #3498db 3px solid;
-        }
+header {
+    background: linear-gradient(45deg, #1e1e1e, #3498db); /* Sanfter Verlauf von Dunkelgrau zu Blau */
+    color: #e0e0e0;
+    padding: 16px 0; /* Etwas mehr Padding oben und unten für mehr Raum */
+    min-height: 80px; /* Größere Höhe für mehr Präsenz */
+    border-bottom: 3px solid #3498db; /* Border bleibt gleich, aber jetzt mit Verlauf kombiniert */
+    border-radius: 10px 10px 0 0; /* Abgerundete obere Ecken */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Leichter Schlagschatten */
+    position: relative;
+    z-index: 10; /* Sicherstellen, dass der Header immer oben bleibt */
+}
 
-        header h1 {
-            margin: 0;
-            text-align: center;
-            padding-bottom: 10px;
-        }
-        .tab {
-            overflow: hidden;
-            border: 1px solid #333;
-            background-color: #1e1e1e;
-        }
-        .tab button {
-            background-color: inherit;
-            float: left;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 14px 16px;
-            transition: 0.3s;
-            font-size: 17px;
-            color: #e0e0e0;
-        }
-        .tab button:hover {
-            background-color: #333;
-        }
-        .tab button.active {
-            background-color: #3498db;
-            color: #121212;
-        }
-        .tabcontent {
-            display: none;
-            padding: 6px 12px;
-            border: 1px solid #333;
-            border-top: none;
-            background-color: #1e1e1e;
-        }
-        .social-links a {
-            display: inline-block;
-            margin: 0 10px;
-            font-size: 24px;
-            color: #3498db;
-            text-decoration: none;
-        }
-        .social-links a:hover {
-            color: #2980b9;
-        }
-        .code-snippet {
-            background-color: #2b2b2b;
-            border: 1px solid #444;
-            border-radius: 4px;
-            padding: 10px;
-            margin-bottom: 10px;
-            font-family: monospace;
-            white-space: pre-wrap;
-        }
-        .collapsible {
-            background-color: #2b2b2b;
-            color: #e0e0e0;
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 15px;
-        }
-        .active, .collapsible:hover {
-            background-color: #3498db;
-        }
-        .collapsible:after {
-            content: '\002B';
-            color: #e0e0e0;
-            font-weight: bold;
-            float: right;
-            margin-left: 5px;
-        }
-        .active:after {
-            content: "\2212";
-        }
-        .content {
-            padding: 0 18px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-            background-color: #1e1e1e;
-        }
-        .social-links {
-            display: flex;
-            flex-direction: column; /* Vertikale Anordnung der Links */
-        }
+header h1 {
+    margin: 0;
+    font-size: 36px; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    transition: transform 0.3s ease-in-out; /* Smooth Hover-Effekt */
+}
 
-        .social-links a {
-            display: flex; /* Flexbox für die Anordnung von Bild und Text */
-            align-items: center; /* Zentriert das Bild vertikal mit dem Text */
-            margin: 5px 0; /* Abstand zwischen den Links */
-            text-decoration: none; /* Unterstrich entfernen */
-            color: inherit; /* Farbvererbung vom übergeordneten Element */
-        }
+header h1:hover {
+    transform: scale(1.1); /* Vergrößerung des Headers, wenn der Benutzer mit der Maus darüber fährt */
+    color: #ffffff; /* Änderung der Schriftfarbe bei Hover */
+}
 
-        .social-icon {
-            width: 24px; /* Breite des Logos */
-            height: 24px; /* Höhe des Logos */
-            margin-right: 8px; /* Abstand zwischen Bild und Text */
-        }
-        footer {
-            background-color: #1e1e1e; /* Hintergrundfarbe */
-            color: #e0e0e0; /* Textfarbe */
-            padding: 20px 0; /* Innenabstand oben und unten */
-            text-align: center; /* Zentrierter Text */
-            border-top: #3498db 3px solid; /* Obere Grenze */
-        }
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #333;
+    background-color: #1e1e1e;
+    position: relative; /* Sicherstellen, dass die Tabs über dem Hintergrund bleiben */
+    z-index: 5;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    color: #e0e0e0;
+}
+
+.tab button:hover {
+    background-color: #333;
+}
+
+.tab button.active {
+    background-color: #3498db;
+    color: #121212;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #333;
+    border-top: none;
+    background-color: #1e1e1e;
+    position: relative; /* Sicherstellen, dass der Inhalt über dem Hintergrund bleibt */
+    z-index: 5;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 24px;
+    color: #3498db;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #2980b9;
+}
+
+.code-snippet {
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
+.collapsible {
+    background-color: #2b2b2b;
+    color: #e0e0e0;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: #3498db;
+}
+
+.collapsible:after {
+    content: '\002B';
+    color: #e0e0e0;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #1e1e1e;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+footer {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    padding: 20px 0;
+    text-align: center;
+    border-top: #3498db 3px solid;
+    position: relative; /* Sicherstellen, dass der Footer über dem Hintergrund bleibt */
+    z-index: 10;
+}
+.language-switch {
+    background-color: #3498db;
+    color: #e0e0e0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 20px 0;
+    transition: background-color 0.3s;
+}
+
+.language-switch:hover {
+    background-color: #2980b9;
+}
+
+
 
 
     </style>
@@ -150,7 +209,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>Astra Studio by Maxgamer</h1>
+            <h1>Meteroite™️</h1>
         </div>
     </header>
 
@@ -163,13 +222,17 @@
         </div>
 
         <div id="Home" class="tabcontent">
-            <h2>Welcome to the Site of Astra Studio!</h2>
-            <p>The site is still under development and I still have some challenges with CSS and JavaScript - it's all still a bit complicated.</p>
-            <p>But anyway, I wish you a safe stay on the Internet! Be careful not to download anything unknown from the internet. And don't think about 'improving' your antivirus by infecting it with light viruses! 😉</p>
-            <p>A little tip for more security online: Use Brave Browser or Firefox with the uBlock Origin extension and possibly Malwarebytes or similar software. And please, a big request:</p>
-            <p>Don't use the same password everywhere! If possible, use a secure password manager such as Google Password Manager or simply a pen and paper. Assign a unique password for each account and secure your accounts as best you can with 2FA apps, phone numbers, etc.</p>
-            <p>I will be posting code snippets here that I have found useful or funny on my journey to learn programming!</p>
+            <h2 id="homeTitle"></h2>
+            <p id="homeText1"></p>
+            <p id="homeText2"></p>
+            <p id="homeText3"></p>
+            <p id="homeText4"></p>
+            <p id="homeText5"></p>
+            <p id="homeText6"></p>
+            <p id="homeText7"></p>
+            <button id="languageSwitch" class="language-switch">Switch to English</button>
         </div>
+        
 
         <div id="Socials" class="tabcontent">
             <h2>My Socials</h2>
@@ -189,8 +252,8 @@
                 <a href="https://github.com/MaxgamerAstra" target="_blank">
                     <img src="icons/github.svg" alt="GitHub" class="social-icon"> GitHub
                 </a>
-                <a href="https://github.com/Astra-Studio-GS" target="_blank">
-                    <img src="icons/astra-round.png" alt="GitHub" class="social-icon"> GitHub Astra Studio
+                <a href="https://github.com/MeteoriteStudio" target="_blank">
+                    <img src="icons/astra-round.png" alt="GitHub" class="social-icon"> GitHub Meteroite™️
                 </a>
                 <a href="https://www.youtube.com/@maxgamergg" target="_blank">
                     <img src="icons/youtube.svg" alt="YouTube" class="social-icon"> YouTube
@@ -299,13 +362,61 @@ function setupCollapsibles() {
         }
     });
 }
+document.addEventListener('DOMContentLoaded', function() {
+    toggleLanguage();  // Ruft die Funktion direkt beim Laden der Seite auf
+});
+
+document.getElementById('languageSwitch').addEventListener('click', toggleLanguage);
+
+let isEnglish = true; 
+
+function toggleLanguage() {
+    isEnglish = !isEnglish;
+
+    const languageSwitchButton = document.getElementById('languageSwitch');
+    const homeTitle = document.getElementById('homeTitle');
+    const homeText1 = document.getElementById('homeText1');
+    const homeText2 = document.getElementById('homeText2');
+    const homeText3 = document.getElementById('homeText3');
+    const homeText4 = document.getElementById('homeText4');
+    const homeText5 = document.getElementById('homeText5');
+    const homeText6 = document.getElementById('homeText6');
+    const homeText7 = document.getElementById('homeText7');
+
+    if (isEnglish) {
+        languageSwitchButton.textContent = "Zu Deutsch wechseln";
+        homeTitle.textContent = "Hello everybody!";
+        homeText1.textContent = "I am known as Maxgamer, on the internet and in some videogames, I came up with this name about 8 years ago when I had to choose a name for the first time in a videogame, and since then I call myself that way everywhere, because I take the decision of my former self to heart. I am also called MaxgamerGG in some games, many think that 'GG' in my name stands for 'Good Game', but actually it stands for something else, it stands for my last name and the last name of an old friend.";
+        homeText2.textContent = "At the moment I am very interested in how computers work and I am learning Python and Kotlin as well as OpenGL to maybe program my first video game. *yay*.";
+        homeText3.textContent = "I made this website because I was also interested in how a browser works and when I saw html I thought 'I must be able to do that' so here I am, making a site and learning things I enjoy.";
+        homeText4.textContent = "The internet is so fascinating but also so scary, I ask everyone to use their own password for each account and not to download everything without paying attention to what it is, so I ask you to be careful on the internet and not to do anything stupid ;D.";
+        homeText5.textContent = "I will improve this website with the time and plan for the future to make a very simple nice game and probably publish it here!";
+        homeText6.textContent = "As a small tip, if someone wants to learn programming:";
+        homeText7.textContent = "Start small, because small successes lead to the motivation you need when programming!";
+        
+    } 
+    
+    else {
+        languageSwitchButton.textContent = "Switch to English";
+        homeTitle.textContent = "Hallo zusammen!";
+        homeText1.textContent = "Ich bin bekannt als Maxgamer, im Internet und in einigen Videospielen, ich kam zu diesem Namen vor etwa fast 8 Jahren, als ich zum ersten Mal in einem Videospiel einen Namen wählen musste und seitdem nenne ich mich überall so, weil ich die Entscheidung meines früheren Ichs zu Herzen nehme. Ich heiße auch MaxgamerGG in einigen Spielen, viele Leute denken, dass 'GG' in meinem Namen für 'Good Game' steht, aber eigentlich steht es für etwas anderes, es steht für meinen Nachnamen und den Nachnamen eines alten Freundes.";
+        homeText2.textContent = "Im Moment interessiere ich mich sehr dafür, wie Computer genau funktionieren, ich lerne Python und Kotlin und plane OpenGL zu lernen, um vielleicht mein erstes Videospiel zu programmieren. *juhu";
+        homeText3.textContent = "Ich habe diese Seite erstellt, weil ich mich auch dafür interessiere, wie ein Browser funktioniert und als ich HTML sah, dachte ich: 'Das muss ich können', also habe ich mir eine Seite erstellt und lerne Sachen, die mir Spaß machen.";
+        homeText4.textContent = "Das Internet ist so faszinierend, aber auch so gefährlich, deshalb bitte ich jeden, ein eigenes Passwort für jeden Account zu benutzen und nicht immer alles herunterzuladen, ohne darauf zu achten, was es ist, also bitte ich euch, im Netz vorsichtig zu sein und nichts Dummes anzurichten ;D.";
+        homeText5.textContent = "Ich werde diese Seite mit der Zeit verbessern und plane für die Zukunft ein sehr einfaches und schönes Spiel zu machen und es wahrscheinlich hier zu veröffentlichen!";
+        homeText6.textContent = "Als kleiner Tipp, falls jemand programmieren lernen möchte:";
+        homeText7.textContent = "Klein anfangen, denn kleine Erfolge bringen Motivation und die braucht man beim Programmieren!";
+    }
+}
+
+
 
         document.getElementById("defaultOpen").click();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     
     <footer>
-        <p>2024 Astra Studio | Maxgamer | Release 1.0.1</p><a href="https://stats.uptimerobot.com/1bM6OM4pTN" target="_blank">UptimeRobot</a> 
+        <p>2024 Meteroite™️ | Maxgamer | Release 1.0.2</p><a href="https://stats.uptimerobot.com/1bM6OM4pTN" target="_blank">UptimeRobot</a> 
     </footer>
 
 </body>

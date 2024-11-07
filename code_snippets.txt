@@ -1,3 +1,169 @@
+## Kotlin: Small Calculator
+
+fun main(){
+    println("Erste Ziffer:")
+    val erste = readln().toInt()
+
+    println("Die gewünchte Operation (+|-|*|/):")
+    val operator = readln().toString()
+    
+    println("Zweite Ziffer:")
+    val zweite = readln().toInt()
+
+
+
+    val ergebniss = when (operator) {
+        "+" -> erste + zweite
+        "-" -> erste - zweite
+        "*" -> erste * zweite
+        "/" -> if (erste != 0) erste / zweite else "Division durch 0"
+        else -> "Ungültige Operation"
+    }
+        println("Dein Term lautet: $erste $operator $zweite = $ergebniss")
+}
+
+main()
+
+## Python: Calculator (Also Part of my little project)
+
+
+from sys import  argv
+from ANSI_Escape_Sequences import * # importere alles von der ANSI_Escape_Sequences.py für die Farben 
+
+if len(argv) > 1 and len(argv[1]) > 1:
+    name = argv[1]
+    print(f'{GRÜN}Hallo{ROT}{name}{RESET}')
+else:
+    print(f'{ROT}Kein Name übergeben!{RESET}\n')
+    name = f'{ROT}Unbekannt!{RESET}'
+
+def beenden(nachricht):
+    print(f"\n{ROT}{nachricht}{RESET}")
+    input(f'\n{GELB}***{ROT}{name}{GELB} drücke eine beliebige Taste, um das Terminal zu beenden. ***{RESET}')
+    exit(0)
+
+def formatieren(nummer):
+    try:
+        return int(nummer)
+    except ValueError:
+        try:
+            return float(nummer)
+        except ValueError:
+            return None
+
+def ist_rechenzeichen(zeichen):
+    if zeichen in ['+', '-', '*', '/', '**', '%']:
+        return zeichen
+    else:
+        return None
+
+
+def hole_nummern(welche: int) -> int:
+    while True:
+        wert = input(f'{CYAN}Dein {ROT}{welche}. {CYAN}Zahl:{RESET} ')
+        if formatieren(wert) is None:
+            print(f'\n{ROT}Bitte eine Zahl eingeben!{RESET}\n')
+        else:
+            break
+    return wert
+
+
+def hole_zeichen(welche: int):
+    while True:
+        zeichen = input(f'{CYAN}Dein {ROT}{welche}. {CYAN}Zeichen:{RESET} ')
+        if zeichen == '' and welche >= 2:
+            break
+        elif ist_rechenzeichen(zeichen) is None:
+            print(f'\n{ROT}Bitte einen Gültigen Operator angeben!{RESET}\n')
+        else:
+            break
+
+    return zeichen
+
+def main():
+    nummer1 = hole_nummern(1)
+    zeichen1 = hole_zeichen(1)
+    nummer2 = hole_nummern(2)
+    zeichen2 = hole_zeichen(2)
+
+    if zeichen2:
+        nummer3 = hole_nummern(3)
+        zeichen3 = hole_zeichen(3)
+        rechnung = f"{nummer1} {zeichen1} {nummer2} {zeichen2} {nummer3}"
+
+        if zeichen3:
+            nummer4 = hole_nummern(4)
+            rechnung = f"{nummer1} {zeichen1} {nummer2} {zeichen2} {nummer3} {zeichen3} {nummer4}"
+        elif not zeichen3:
+            rechnung = f"{nummer1} {zeichen1} {nummer2} {zeichen2} {nummer3}"
+
+    elif not zeichen2:
+        rechnung = f"{nummer1} {zeichen1} {nummer2}"
+
+
+
+    ergebnis = formatieren(eval(rechnung))
+
+    print(f'\n{CYAN}Dein Ergebniss aus {RESET}{rechnung} {CYAN}= {RESET}{ergebnis}')
+
+    neu = input(f"\n{CYAN}Zum Beenden '{ROT}Q{CYAN}' Drücken oder '{ROT}Enter{CYAN}' zum weiterrechnen!{RESET}\n").lower()
+
+    if neu == 'q':
+        beenden('Programm Schließt!')
+    else:
+        if __name__ == "__main__":
+            main()
+
+if __name__ == "__main__":
+    main()
+
+
+
+## Python: ASYN Escape Codes (Part of my little project)
+
+
+SCHWARZ = '\033[30m'
+ROT = '\033[31m'
+GRÜN = '\033[32m'
+GELB = '\033[33m' # orange in manchen betriebs systeme / orange on some devices
+BLAU = '\033[34m'
+MAGENTA = '\033[35m'
+CYAN = '\033[36m'
+HELL_GRAU = '\033[37m'
+DUNKEL_GRAU = '\033[90m'
+HELL_ROT = '\033[91m'
+HELL_GRUN = '\033[92m'
+HELL_GELB = '\033[93m'
+HELL_BLAU = '\033[94m'
+HELL_MAGENTA = '\033[95m'
+HELL_CYAN = '\033[96m'
+WEIß = '\033[97m'
+
+RESET = '\033[0m' # restet zum standartterminalfarbe / resets terminal to the standart color used by the os
+
+
+def main():
+    print(SCHWARZ + "SCHWARZ" + RESET)
+    print(ROT + "ROT" + RESET)
+    print(GRÜN + "GRUN" + RESET)
+    print(GELB + "GELB" + RESET)
+    print(BLAU + "BLAU" + RESET)
+    print(MAGENTA + "MAGENTA" + RESET)
+    print(CYAN + "CYAN" + RESET)
+    print(HELL_GRAU + "HELL GRAU" + RESET)
+    print(DUNKEL_GRAU + "DUNKEL GRAU" + RESET)
+    print(HELL_ROT + "HELL ROT" + RESET)
+    print(HELL_GRUN + "HELL GRUN" + RESET)
+    print(HELL_GELB + "HELL GELB" + RESET)
+    print(HELL_BLAU + "HELL BLAU" + RESET)
+    print(HELL_MAGENTA + "HELL MAGENTA" + RESET)
+    print(HELL_CYAN + "HELL CYAN" + RESET)
+    print(WEIß + "WEIß" + RESET)
+
+if __name__ == "__main__":
+    main()
+
+
 ## Python: Age Calculator
 
 

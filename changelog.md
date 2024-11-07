@@ -1,3 +1,12 @@
+## [1.0.2] - 2024-11-07
+
+### Added
+- Language Switch to the main Page
+
+### Changed
+- Design improvements
+- CSS properties
+
 ## [1.0.1] - 2024-10-25
 
 ### Added
@@ -26,7 +35,7 @@
 ## [1.0.0] - 2024-10-23
 
 ### Added
-- Redesigned the page.
+- Redesigned the page on 2024-10-23.
 - Added changelog section.
 - Integrated HTML, CSS, and JavaScript files into a single file.
 
@@ -36,20 +45,15 @@
 - Added code snippets section.
 - Integrated `https://cdn.jsdelivr.net/npm/marked/marked.min.js` for future use.
 
-## [0.8.0] - 2024-10-13
-
-### Added
-- Linked with Uptime Robot ([Status Page](https://stats.uptimerobot.com/1bM6OM4pTN)).
-
-## [0.7.0] - 2024-09-19
+## [0.7.0 - 0.8.0] - 2024-09-19
 
 ### Changed
--  Implemented home content directly in the HTML file instead of loading it externally.
+- Implemented home content directly in the HTML file instead of loading it externally.
 
 ## [0.6.0] - 2024-09-13
 
-### Changed
-- Improved dynamic content loading using JavaScript.
+### Added
+- Linked with Uptime Robot ([Status Page](https://stats.uptimerobot.com/1bM6OM4pTN)).
 
 ## [0.5.0] - 2024-09-09
 
