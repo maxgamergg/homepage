@@ -28,7 +28,8 @@ main()
 
 
 from sys import  argv
-from ANSI_Escape_Sequences import * # importere alles von der ANSI_Escape_Sequences.py für die Farben 
+from ANSI_Escape_Sequences import *
+from beenden import beenden
 
 if len(argv) > 1 and len(argv[1]) > 1:
     name = argv[1]
@@ -37,10 +38,7 @@ else:
     print(f'{ROT}Kein Name übergeben!{RESET}\n')
     name = f'{ROT}Unbekannt!{RESET}'
 
-def beenden(nachricht):
-    print(f"\n{ROT}{nachricht}{RESET}")
-    input(f'\n{GELB}***{ROT}{name}{GELB} drücke eine beliebige Taste, um das Terminal zu beenden. ***{RESET}')
-    exit(0)
+
 
 def formatieren(nummer):
     try:
@@ -81,24 +79,18 @@ def hole_zeichen(welche: int):
     return zeichen
 
 def main():
+    rechnung = ""
     nummer1 = hole_nummern(1)
-    zeichen1 = hole_zeichen(1)
-    nummer2 = hole_nummern(2)
-    zeichen2 = hole_zeichen(2)
+    rechnung += str(nummer1)
 
-    if zeichen2:
-        nummer3 = hole_nummern(3)
-        zeichen3 = hole_zeichen(3)
-        rechnung = f"{nummer1} {zeichen1} {nummer2} {zeichen2} {nummer3}"
-
-        if zeichen3:
-            nummer4 = hole_nummern(4)
-            rechnung = f"{nummer1} {zeichen1} {nummer2} {zeichen2} {nummer3} {zeichen3} {nummer4}"
-        elif not zeichen3:
-            rechnung = f"{nummer1} {zeichen1} {nummer2} {zeichen2} {nummer3}"
-
-    elif not zeichen2:
-        rechnung = f"{nummer1} {zeichen1} {nummer2}"
+    i = 1
+    while True:
+        zeichen = hole_zeichen(i)
+        if not zeichen:
+            break
+        nummer = hole_nummern(i + 1)
+        rechnung += f" {zeichen} {nummer}"
+        i += 1
 
 
 
@@ -109,7 +101,7 @@ def main():
     neu = input(f"\n{CYAN}Zum Beenden '{ROT}Q{CYAN}' Drücken oder '{ROT}Enter{CYAN}' zum weiterrechnen!{RESET}\n").lower()
 
     if neu == 'q':
-        beenden('Programm Schließt!')
+        beenden('Programm Schließt!', name, 0)
     else:
         if __name__ == "__main__":
             main()
@@ -117,7 +109,14 @@ def main():
 if __name__ == "__main__":
     main()
 
+### Python: Terminate Function (Dependency of something comming here soon!)
 
+from ANSI_Escape_Sequences import *
+
+def beenden(nachricht, name, exit_code):
+    print(f"\n{ROT}{nachricht}{RESET}")
+    input(f'\n{GELB}***{ROT}{name}{GELB} drücke \'Enter\', um das Terminal zu beenden. ***{RESET}')
+    exit(exit_code)
 
 ## Python: ASYN Escape Codes (Part of my little project)
 
