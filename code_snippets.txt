@@ -33,12 +33,13 @@ from beenden import beenden
 
 if len(argv) > 1 and len(argv[1]) > 1:
     name = argv[1]
-    print(f'{GRÜN}Hallo{ROT}{name}{RESET}')
+    print(f'{GRÜN}Hallo {ROT}{name}{RESET}')
 else:
     print(f'{ROT}Kein Name übergeben!{RESET}\n')
-    name = f'{ROT}Unbekannt!{RESET}'
+    name = f'{ROT}Unbekannt{RESET}'
 
-
+def format_number(n):
+    return int(n) if n.is_integer() else n
 
 def formatieren(nummer):
     try:
@@ -79,6 +80,8 @@ def hole_zeichen(welche: int):
     return zeichen
 
 def main():
+
+
     rechnung = ""
     nummer1 = hole_nummern(1)
     rechnung += str(nummer1)
@@ -94,9 +97,9 @@ def main():
 
 
 
-    ergebnis = formatieren(eval(rechnung))
+    ergebnis = (eval(rechnung))
 
-    print(f'\n{CYAN}Dein Ergebniss aus {RESET}{rechnung} {CYAN}= {RESET}{ergebnis}')
+    print(f'\n{CYAN}Dein Ergebniss aus {RESET}{rechnung} {CYAN}= {RESET}{format_number(ergebnis)}')
 
     neu = input(f"\n{CYAN}Zum Beenden '{ROT}Q{CYAN}' Drücken oder '{ROT}Enter{CYAN}' zum weiterrechnen!{RESET}\n").lower()
 
@@ -107,9 +110,26 @@ def main():
             main()
 
 if __name__ == "__main__":
+    print(f'''
+{GELB}Anleitung:{RESET}
+{BLAU}Addition: {ROT}+{RESET}
+{BLAU}Subtrakion: {ROT}-{RESET}
+{BLAU}Division: {ROT}/{RESET}
+{BLAU}Multiplikation: {ROT}*{RESET}
+{BLAU}Potenz: {ROT}**{RESET}
+{BLAU}Prozent: {ROT}%{RESET}
+
+{GELB}Wenn du fertig bist, drücke 'Enter' und lasse das Feld frei!{RESET}
+
+{ROT}Bitte beachte, dass das Addieren von z.B. 0,1 + 0,2 = {0.1 + 0.2} Ergeben kann,
+da Computer Schwer mit Kommazahlen (Floats) Arbeten können!{RESET}
+    ''')
     main()
 
-### Python: Terminate Function (Dependency of something comming here soon!)
+
+
+
+## Python: Terminate Function (Dependency of something comming here soon!)
 
 from ANSI_Escape_Sequences import *
 
