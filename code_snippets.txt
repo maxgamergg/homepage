@@ -1,3 +1,53 @@
+## C++: Small Calculator
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+     cout << " Erster Wert: ";
+     double nummer1;
+     cin >> nummer1;
+
+     cout << "Operator (+ - * /): ";
+     string operatorZeichen;
+     cin >> operatorZeichen;
+
+     cout << "Zweiter Wert: ";
+     double nummer2;
+     cin >> nummer2;
+
+     double ergebnis = 0;
+
+     if (operatorZeichen == "+") {
+          ergebnis = nummer1 + nummer2;
+     }
+     else if (operatorZeichen == "-") {
+          ergebnis = nummer1 - nummer2;
+     }
+     else if (operatorZeichen == "*") {
+          ergebnis = nummer1 * nummer2;
+     }
+     else if (operatorZeichen == "/") {
+          if (nummer2 != 0) {
+               ergebnis = nummer1 / nummer2;
+          } else {
+               cout << "Fehler: Division durch Null ist nicht erlaubt!";
+               return 1;
+          }
+     }
+     else {
+          cout << "Ein Fehler ist aufgetreten! Bitte erneut versuchen!";
+          return 1;
+     }
+
+     cout << "Das Ergebnis lautet: " << nummer1 << " " << operatorZeichen << " " << nummer2 << " = " << ergebnis;
+
+     return 0;
+}
+
+
+
 ## Kotlin: Small Calculator
 
 fun main(){
