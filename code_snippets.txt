@@ -26,6 +26,103 @@ main()
 
 ## Python: Calculator (Also Part of my little project)
 
+from sys import argv
+from ANSI_Escape_Sequences import *
+from beenden import beenden
+
+if len(argv) > 1 and len(argv[1]) > 1:
+    name = argv[1]
+    print(f'{GRÜN}Hallo {ROT}{name}{RESET}')
+else:
+    print(f'{ROT}Kein Name übergeben!{RESET}\n')
+    name = f'{ROT}Unbekannt{RESET}'
+
+def format_number(n):
+    return int(n) if n.is_integer() else n
+
+def formatieren(nummer):
+    try:
+        return int(nummer)
+    except ValueError:
+        try:
+            return float(nummer)
+        except ValueError:
+            return None
+
+def ist_rechenzeichen(zeichen):
+    if zeichen in ['+', '-', '*', '/', '**', '%']:
+        return zeichen
+    else:
+        return None
+
+
+def hole_nummern(welche: int) -> int:
+    while True:
+        wert = input(f'{CYAN}Gib die {ROT}{welche}. {CYAN}Zahl ein:{RESET} ')
+        if formatieren(wert) is None:
+            print(f'\n{ROT}Bitte eine gültige Zahl eingeben!{RESET}\n')
+        else:
+            break
+    return wert
+
+
+def hole_zeichen(welche: int):
+    while True:
+        zeichen = input(f'{CYAN}Gib das {ROT}{welche}. {CYAN}Zeichen ein:{RESET} ')
+        if zeichen == '' and welche >= 2:
+            break
+        elif ist_rechenzeichen(zeichen) is None:
+            print(f'\n{ROT}Bitte einen gültigen Operator angeben!{RESET}\n')
+        else:
+            break
+
+    return zeichen
+
+def main():
+    rechnung = ""
+    nummer1 = hole_nummern(1)
+    rechnung += str(nummer1)
+
+    i = 1
+    while True:
+        zeichen = hole_zeichen(i)
+        if not zeichen:
+            break
+        nummer = hole_nummern(i + 1)
+        rechnung += f" {zeichen} {nummer}"
+        i += 1
+
+    ergebnis = (eval(rechnung))
+
+    if type(ergebnis) == float or bool:
+        print(f'''
+{ROT}Bitte beachte, dass das Addieren von z.B. 0,1 + 0,2 = {0.1 + 0.2} ergeben kann,
+da Computer mit Kommazahlen (Floats/Doubles) nur eingeschränkt genau rechnen können!{RESET}
+''')
+
+    print(f'\n{CYAN}Das Ergebnis aus {RESET}{rechnung} {CYAN}= {RESET}{format_number(ergebnis)}')
+
+    neu = input(f"\n{CYAN}Zum Beenden '{ROT}Q{CYAN}' drücken oder '{ROT}Enter{CYAN}' zum Weiterrechnen!{RESET}\n").lower()
+
+    if neu == 'q':
+        beenden('Programm wird geschlossen!', name, 0)
+    else:
+        if __name__ == "__main__":
+            main()
+
+if __name__ == "__main__":
+    print(f'''
+{GELB}Anleitung:{RESET}
+{BLAU}Addition: {ROT}+{RESET}
+{BLAU}Subtraktion: {ROT}-{RESET}
+{BLAU}Division: {ROT}/{RESET}
+{BLAU}Multiplikation: {ROT}*{RESET}
+{BLAU}Potenz: {ROT}**{RESET}
+{BLAU}Modulus: {ROT}%{RESET}
+
+{GELB}Wenn du fertig bist, drücke '{ROT}Enter{GELB}' und lasse das Feld frei!{RESET}
+''')
+    main()
 
 
 
@@ -35,7 +132,7 @@ from ANSI_Escape_Sequences import *
 
 def beenden(nachricht, name, exit_code):
     print(f"\n{ROT}{nachricht}{RESET}")
-    input(f'\n{GELB}***{ROT}{name}{GELB} drücke \'Enter\', um das Terminal zu beenden. ***{RESET}')
+    input(f'\n{GELB}***{ROT}{name}{GELB} drücke \'{ROT}Enter{GELB}\', um das Terminal zu beenden. ***{RESET}')
     exit(exit_code)
 
 ## Python: ASYN Escape Codes (Part of my little project)
