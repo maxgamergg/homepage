@@ -1,3 +1,89 @@
+## C++: Tax Calculator
+
+//
+// Created by maxga on 14.11.2024.
+//
+
+#include "dir.h"
+#include <iostream>
+#include <limits>
+#include <cmath>
+
+using namespace std;
+
+// Konstanten für die Steuergrenzen
+const double GRUNDFREIBETRAG = 10908.0;
+const double ZONE1_OBERGRENZE = 66761.0;
+const double ZONE2_OBERGRENZE = 277825.0;
+
+double umsatz_holen() {
+    double umsatz;
+    while (true) {
+        cout << "Wie viel Umsatz hast du in diesem Monat gemacht: " << endl;
+        cin >> umsatz;
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // ohne numeric_limits<streamsize>::max() wird der while loop pro invalides Zeichen einmal durchlaufen
+            cout << "Der Angegebene Wert ist keine valide Zahl!" << endl;
+        }
+        else {
+            if (umsatz != 0) {
+                break;
+            }
+            else {
+                cout << "Bitte eine Zahl nennen, die nicht null ist!" << endl;
+            }
+        }
+    }
+    return umsatz;
+}
+
+double steuer_berechen() {
+    double umsatz = umsatz_holen();
+    double steuer = 0.0;
+
+    // 10.908 Euro (keine Steuer)
+    if (umsatz <= GRUNDFREIBETRAG) {
+        return steuer; // Keine Steuer
+    }
+
+    // 10.909 Euro bis 66.761 Euro (14% bis 24%)
+    if (umsatz > GRUNDFREIBETRAG && umsatz <= ZONE1_OBERGRENZE) {
+        double zuVersteuerndesEinkommen = umsatz - GRUNDFREIBETRAG; // Einkommen über Grundfreibetrag
+        steuer += zuVersteuerndesEinkommen * 0.19; // Durchschnittlicher Steuersatz von ca. 14-24%
+        return steuer;
+    }
+
+    // Komplette (14% bis 24%)
+    steuer += (ZONE1_OBERGRENZE - GRUNDFREIBETRAG) * 0.19;
+
+    // 66.762 Euro bis 277.825 Euro (24% bis 42%)
+    if (umsatz > ZONE1_OBERGRENZE && umsatz <= ZONE2_OBERGRENZE) {
+        double zuVersteuerndesEinkommen = umsatz - ZONE1_OBERGRENZE;
+        steuer += zuVersteuerndesEinkommen * 0.33; // Durchschnittlicher Steuersatz von ca. 24-42%
+        return steuer;
+    }
+
+    // Komplette (24% bis 42%)
+    steuer += (ZONE2_OBERGRENZE - ZONE1_OBERGRENZE) * 0.33;
+
+    // Reichensteuer: Über 277.826 Euro (45%)
+    if (umsatz > ZONE2_OBERGRENZE) {
+        double zuVersteuerndesEinkommen = umsatz - ZONE2_OBERGRENZE;
+        steuer += zuVersteuerndesEinkommen * 0.45;
+    }
+
+    return steuer;
+}
+
+int main() {
+    double steuerNetGerundet = steuer_berechen();
+    double steuerZuZahlen = round(steuerNetGerundet * 100.0 ) / 100.0;
+
+    cout << "Die berechnete Einkommensteuer betraegt: " << steuerZuZahlen << " Euro" << endl;
+    return 0;
+}
+
 ## C++: Small Calculator
 
 #include <iostream>
